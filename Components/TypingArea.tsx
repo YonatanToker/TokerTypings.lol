@@ -15,6 +15,23 @@ type TestResult = {
   level: string;
 };
 const TypingArea: React.FC<typingAreaProps> = ({ wordsAmount, path }) => {
+  const [theme, setTheme] = useState("light");
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedTheme = localStorage.getItem("theme");
+
+      if (storedTheme) {
+        setTheme(storedTheme);
+        return;
+      }
+    }
+    if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+      setTheme("dark");
+    }
+  }, []);
   //everything related to input field and wpm, accuracy, correct & wrong words:
   const [typedWord, setTypedWord] = useState("");
   const [correctWordsCount, setCorrectWordsCount] = useState(0);
@@ -225,7 +242,11 @@ const TypingArea: React.FC<typingAreaProps> = ({ wordsAmount, path }) => {
         >
           <Image
             className="reset-img"
-            src="/white-circular-arrows.png"
+            src={
+              theme === "dark"
+                ? "/white-circular-arrows.png"
+                : "/circular-arrows.png"
+            }
             alt="circular arrows"
             width={30}
             height={30}
