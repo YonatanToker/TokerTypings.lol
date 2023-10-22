@@ -122,6 +122,13 @@ body {
   color: var(--text-white);
   text-decoration: underline;
 }
+.reset-default-btn {
+  margin: 0.5em auto;
+  display: flex;
+  padding: 0.5em;
+  background-color: var(--bg-white);
+  border-radius: 10px;
+}
 .highlighted-test {
   background-color: var(--bg-white);
   border-radius: 10px;
@@ -336,6 +343,9 @@ body {
   }
   .save-button {
     background-color: var(--bg-dark);
+  }
+  .reset-default-btn {
+    background-color: var(--bg-darker);
   }
 }
 @media screen and (max-width: 800px) {

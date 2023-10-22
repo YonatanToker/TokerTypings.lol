@@ -42,6 +42,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <button className="reset-default-btn hover-scale">Reset Default</button>
     </div>
   );
 }
