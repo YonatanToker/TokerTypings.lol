@@ -38,13 +38,6 @@ const TestsNavbar = () => {
         >
           Hard
         </Link>
-        <Image
-          className="hidden tests__navbar-bars"
-          src="/menu-white.png"
-          alt="tests-menu"
-          width={30}
-          height={30}
-        />
       </nav>
       <hr className="tests__navbar-hr" />
     </>
