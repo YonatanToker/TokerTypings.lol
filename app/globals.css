@@ -39,6 +39,14 @@ body {
 .navbar {
   background-color: var(--bg-light);
   color: var(--text-darker);
+  width: 100%;
+  height: 5em;
+  display: flex;
+  align-items: center;
+}
+.general-navbar__items {
+  margin-inline: 0.5em;
+  padding: 0.25em;
 }
 .general-navbar__items:hover {
   background-color: var(--bg-white);
@@ -49,6 +57,10 @@ body {
   background-color: var(--bg-light);
   color: var(--text-darker);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.navbar__items {
+  padding: 0.25em;
+  margin-inline: 0.5em;
 }
 .navbar__items:hover {
   background-color: var(--bg-white);
@@ -93,6 +105,17 @@ body {
 .highlighted-test {
   background-color: var(--bg-white);
   border-radius: 10px;
+  font-weight: 600;
+  text-decoration: underline;
+}
+.reset-img {
+  margin-inline: auto;
+}
+.tests__navbar {
+  width: 100%;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  margin-bottom: 0.25em;
 }
 .tests__navbar-hr {
   margin-block: 1em;
@@ -117,6 +140,9 @@ body {
   width: 90%;
   max-width: 900px;
   flex-wrap: wrap;
+}
+.words__spans {
+  margin-right: 0.4em;
 }
 /* No inner flows issues whatsoever except the bar... */
 .bar {

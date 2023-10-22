@@ -23,29 +23,27 @@ const Navbar = () => {
   };
   const firstRoute = getFirstRoute();
   return (
-    <header className="navbar w-f h-20 flex items-center">
+    <header className="navbar">
       <nav className="font-bold text-3xl">
         <Link
-          className={`general-navbar__items navbar__home mx-4 p-1 ${
-            firstRoute === "" ? "underline font-bold highlighted-test" : ""
+          className={`general-navbar__items navbar__home ${
+            firstRoute === "" ? "highlighted-test" : ""
           }`}
           href="/"
         >
           Home
         </Link>
         <Link
-          className={`general-navbar__items navbar__tests mx-4 p-1 ${
-            firstRoute === "Tests" ? "underline font-bold highlighted-test" : ""
+          className={`general-navbar__items navbar__tests ${
+            firstRoute === "Tests" ? "highlighted-test" : ""
           }`}
           href="/Tests/Easy"
         >
           Tests
         </Link>
         <Link
-          className={`general-navbar__items navbar__statistics ml-4 p-1 ${
-            firstRoute === "Statistics"
-              ? "underline font-bold highlighted-test"
-              : ""
+          className={`general-navbar__items navbar__statistics ${
+            firstRoute === "Statistics" ? "highlighted-test" : ""
           }`}
           href="/Statistics"
         >

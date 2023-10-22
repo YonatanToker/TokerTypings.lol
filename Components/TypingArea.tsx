@@ -165,7 +165,7 @@ const TypingArea: React.FC<typingAreaProps> = ({ wordsAmount, path }) => {
       return (
         <span
           key={index}
-          className="mr-2"
+          className="words__spans"
           ref={(el) => (wordRefs.current[index] = el)}
         >
           {word}
@@ -221,7 +221,7 @@ const TypingArea: React.FC<typingAreaProps> = ({ wordsAmount, path }) => {
           onClick={handleRefresh}
         >
           <Image
-            className="reset-img mx-auto"
+            className="reset-img"
             src="/white-circular-arrows.png"
             alt="circular arrows"
             width={30}

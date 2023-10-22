@@ -2,37 +2,30 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
 const TestsNavbar = () => {
   const pathname = usePathname();
   return (
     <>
-      <nav className="tests__navbar w-full text-3xl mb-1">
+      <nav className="tests__navbar">
         <Link
-          className={`p-1 mx-4 navbar__items ${
-            pathname === "/Tests/Easy"
-              ? "underline font-semibold highlighted-test"
-              : ""
+          className={`navbar__items ${
+            pathname === "/Tests/Easy" ? "highlighted-test" : ""
           }`}
           href="/Tests/Easy"
         >
           Easy
         </Link>
         <Link
-          className={`p-1 mx-4 navbar__items ${
-            pathname === "/Tests/Normal"
-              ? "underline font-semibold highlighted-test"
-              : ""
+          className={`navbar__items ${
+            pathname === "/Tests/Normal" ? "highlighted-test" : ""
           }`}
           href="/Tests/Normal"
         >
           Normal
         </Link>
         <Link
-          className={`p-1 mx-4 navbar__items ${
-            pathname === "/Tests/Hard"
-              ? "underline font-semibold highlighted-test"
-              : ""
+          className={`navbar__items ${
+            pathname === "/Tests/Hard" ? "highlighted-test" : ""
           }`}
           href="/Tests/Hard"
         >
