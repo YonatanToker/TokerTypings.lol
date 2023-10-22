@@ -18,9 +18,7 @@ export default function Home() {
         <div className="preference-container">
           <div className="preference__item">
             <h1 className="text-2xl underline">Theme:</h1>
-            <button className="preferences__buttons hover-scale current-preference">
-              Light
-            </button>
+            <button className="preferences__buttons hover-scale">Light</button>
             <button className="preferences__buttons hover-scale">Dark</button>
           </div>
           <div className="preference__item">

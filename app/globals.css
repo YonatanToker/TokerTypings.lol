@@ -185,6 +185,7 @@ body {
   box-sizing: border-box;
   padding: 0 12px;
   outline: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 #input-field:focus {
   border: var(--bg-darker) solid 2px;
@@ -195,8 +196,9 @@ body {
   border: none;
   outline: none;
   border-radius: 8px;
-  background-color: var(--bg-white);
+  background-color: var(--bg-darker);
   margin-left: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .current-word {
   color: purple;
@@ -311,9 +313,6 @@ body {
     border: 2px solid var(--bg-darker);
   }
   .arrows-wrapper {
-    background-color: var(--bg-darker);
-  }
-  .reset-button {
     background-color: var(--bg-darker);
   }
   #input-field:focus {
