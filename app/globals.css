@@ -213,7 +213,7 @@ html {
   border: none;
   outline: none;
   border-radius: 8px;
-  background-color: var(--bg-darker);
+  background-color: #131313;
   margin-left: 10px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
