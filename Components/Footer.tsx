@@ -10,7 +10,7 @@ const Footer = () => {
     window.open("https://www.linkedin.com/in/yonatan-toker-073607170/");
   };
   return (
-    <footer className="flex flex-col absolute bottom-1 right-1">
+    <footer className="logos-footer">
       <Image
         className="cursor-pointer hover:scale-110"
         src="/github.png"

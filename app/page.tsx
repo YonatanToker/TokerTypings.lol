@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="px-4 pt-4 relative pb-9">
       <h1 className="text-4xl text-center tracking-wider">
-        Welcome to TokerTypings.lol
+        Welcome to TokerTypings.lol 👋
       </h1>
       <h2 className="text-2xl text-center my-4">
         Be ready to play typing tests with your set of preferences and track
@@ -18,21 +18,29 @@ export default function Home() {
         <div className="preference-container">
           <div className="preference__item">
             <h1 className="text-2xl underline">Theme:</h1>
-            <button className="preferences__buttons underline">Light</button>
-            <button className="preferences__buttons">Dark</button>
+            <button className="preferences__buttons hover-scale current-preference">
+              Light
+            </button>
+            <button className="preferences__buttons hover-scale">Dark</button>
           </div>
           <div className="preference__item">
             <h1 className="text-2xl underline">Font Family:</h1>
-            <button className="preferences__buttons underline">
+            <button className="preferences__buttons hover-scale current-preference">
               sans-serif
             </button>
-            <button className="preferences__buttons">monospace</button>
-            <button className="preferences__buttons">cursive</button>
+            <button className="preferences__buttons hover-scale">
+              monospace
+            </button>
+            <button className="preferences__buttons hover-scale">
+              cursive
+            </button>
           </div>
           <div className="preference__item">
             <h1 className="text-2xl underline">Punctuation:</h1>
-            <button className="preferences__buttons underline">without</button>
-            <button className="preferences__buttons">with</button>
+            <button className="preferences__buttons hover-scale current-preference">
+              without
+            </button>
+            <button className="preferences__buttons hover-scale">with</button>
           </div>
         </div>
       </div>

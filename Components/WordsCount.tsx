@@ -16,7 +16,7 @@ const WordsCount: React.FC<WordsCountProps> = ({ onCountSelected }) => {
 
   return (
     <>
-      <ul className="w-full text-2xl list-none flex justify-center">
+      <ul className="words-count">
         {[25, 35, 50, 100].map((count) => (
           <Fragment key={count}>
             <li
