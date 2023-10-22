@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Navbar />
-        <main className="main px-20 py-10 w-full flex flex-col items-center">
+        <main className="main">
           <div className="container rounded-xl main-container p-2">
             {children}
           </div>

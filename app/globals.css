@@ -30,7 +30,8 @@ body {
   min-height: 100vh;
   min-height: 100dvh;
 }
-.body {
+.body,
+html {
   position: relative;
   background: var(--bg-white);
   color: var(--text-darker);
@@ -73,6 +74,15 @@ body {
   margin-right: 0.5em;
   height: 100%;
   cursor: pointer;
+}
+.main {
+  background-color: var(--bg-white);
+  padding-inline: 5em;
+  padding-block: 2.5em;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .words-count {
   width: 100%;
@@ -279,7 +289,8 @@ body {
   row-gap: 0.2em;
 }
 @media (prefers-color-scheme: dark) {
-  body {
+  .body,
+  html {
     background: var(--bg-darker);
     color: var(--text-white);
   }
@@ -302,6 +313,9 @@ body {
   }
   .general-navbar__items:hover {
     background-color: var(--bg-light);
+  }
+  .main {
+    background-color: var(--bg-darker);
   }
   .main-container {
     background-color: var(--bg-dark);
