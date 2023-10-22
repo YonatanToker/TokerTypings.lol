@@ -1,4 +1,4 @@
-import "./globals.css";
+import "../globals.css";
 import React from "react";
 import { StatisticsNavbar } from "@/Components";
 const StatisticsLayout = ({ children }: { children: React.ReactNode }) => {
