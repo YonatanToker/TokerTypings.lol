@@ -11,22 +11,25 @@ const Footer = () => {
   };
   return (
     <footer className="logos-footer">
-      <Image
-        className="cursor-pointer hover:scale-110"
-        src="/github.png"
-        alt="github logo"
-        width={40}
-        height={40}
-        onClick={openLinkToGithub}
-      />
-      <Image
-        className="cursor-pointer mt-2 hover:scale-110"
-        src="/linkedin.png"
-        alt="linkedIn logo"
-        width={40}
-        height={40}
-        onClick={openLinkToLinkedIn}
-      />
+      <p className="footer-paragraph">@ Made by Yonatan Toker</p>
+      <div className="logos-container">
+        <Image
+          className="hover-scale"
+          src="/github.png"
+          alt="github logo"
+          width={40}
+          height={40}
+          onClick={openLinkToGithub}
+        />
+        <Image
+          className="hover-scale"
+          src="/linkedin.png"
+          alt="linkedIn logo"
+          width={40}
+          height={40}
+          onClick={openLinkToLinkedIn}
+        />
+      </div>
     </footer>
   );
 };

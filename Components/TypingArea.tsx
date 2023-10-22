@@ -31,6 +31,9 @@ const TypingArea: React.FC<typingAreaProps> = ({ wordsAmount, path }) => {
   const [resultsArr, setResultsArr] = useState<TestResult[]>([]);
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
+    if (value.trim() === "" && value.endsWith(" ")) {
+      return;
+    }
     if (!startTime) setStartTime(Date.now());
 
     // Referring to the current word element using the wordRefs array

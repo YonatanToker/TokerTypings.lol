@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="px-4 pt-4 relative pb-9">
+    <div className="p-4 relative">
       <h1 className="text-4xl text-center tracking-wider">
         Welcome to TokerTypings.lol 👋
       </h1>
@@ -44,7 +44,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <p className="absolute bottom-1 left-1">@ Made by Yonatan Toker</p>
     </div>
   );
 }
