@@ -14,13 +14,15 @@ type TestResult = {
   wrongWords: number;
   level: string;
 };
+type ThemeType = "light" | "dark" | null;
 const TypingArea: React.FC<typingAreaProps> = ({ wordsAmount, path }) => {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState<ThemeType>(null);
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const storedTheme = localStorage.getItem("theme");
+      const storedTheme = localStorage.getItem("theme") as ThemeType;
+      const validThemes: ThemeType[] = ["light", "dark"];
 
-      if (storedTheme) {
+      if (validThemes.includes(storedTheme)) {
         setTheme(storedTheme);
         return;
       }
@@ -240,17 +242,19 @@ const TypingArea: React.FC<typingAreaProps> = ({ wordsAmount, path }) => {
           title="or press esc"
           onClick={handleRefresh}
         >
-          <Image
-            className="reset-img"
-            src={
-              theme === "dark"
-                ? "/white-circular-arrows.png"
-                : "/circular-arrows.png"
-            }
-            alt="circular arrows"
-            width={30}
-            height={30}
-          />
+          {theme && (
+            <Image
+              className="reset-img"
+              src={
+                theme === "dark"
+                  ? "/white-circular-arrows.png"
+                  : "/circular-arrows.png"
+              }
+              alt="circular arrows"
+              width={30}
+              height={30}
+            />
+          )}
         </button>
       </div>
       {resultsArr.length > 0 && showResults && (
