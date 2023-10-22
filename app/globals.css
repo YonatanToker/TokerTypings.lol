@@ -61,11 +61,18 @@ body {
 .navbar__items {
   padding: 0.25em;
   margin-inline: 0.5em;
+  cursor: pointer;
 }
 .navbar__items:hover {
   background-color: var(--bg-white);
   border-radius: 5px;
   color: var(--bg-dark);
+}
+.navbar__image {
+  margin-left: auto;
+  margin-right: 0.5em;
+  height: 100%;
+  cursor: pointer;
 }
 /* home */
 .preferences {
@@ -209,6 +216,10 @@ body {
   top: 0.25em;
   color: var(--text-darker);
   user-select: none;
+}
+.display-results__recent {
+  text-align: center;
+  margin-bottom: 0.8em;
 }
 .hover-scale:hover {
   transform: scale(1.1);

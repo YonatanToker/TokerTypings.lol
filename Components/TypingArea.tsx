@@ -234,7 +234,7 @@ const TypingArea: React.FC<typingAreaProps> = ({ wordsAmount, path }) => {
           <div className="close hover-scale" onClick={handleClose}>
             x
           </div>
-          <h1 className="text-center mb-4">{`Recent taken test (${
+          <h1 className="display-results__recent">{`Recent taken test (${
             resultsArr[resultsArr.length - 1].level
           }):`}</h1>
           <div className="wrapper">

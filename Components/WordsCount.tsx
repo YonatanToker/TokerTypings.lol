@@ -21,7 +21,7 @@ const WordsCount: React.FC<WordsCountProps> = ({ onCountSelected }) => {
           <Fragment key={count}>
             <li
               key={count}
-              className={`navbar__items mx-2 cursor-pointer p-1 ${
+              className={`navbar__items ${
                 count === selectedCount ? "highlighted-test" : ""
               }`}
               onClick={() => handleCountClick(count)}

@@ -55,7 +55,7 @@ const Navbar = () => {
         alt="keyboard logo"
         width={90}
         height={80}
-        className="ml-auto mr-2 h-full cursor-pointer hover-scale"
+        className="navbar__image hover-scale"
         onClick={backToHome}
       />
     </header>
