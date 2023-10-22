@@ -364,7 +364,7 @@ body {
   .tests__navbar > * {
     display: none;
   }
-  */ .tests__navbar-bars {
+  .tests__navbar-bars {
     display: flex;
   }
   .bar {
