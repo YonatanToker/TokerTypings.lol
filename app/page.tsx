@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 type ThemeType = "light" | "dark" | null;
 type FontType = "sans-serif" | "monospace" | "cursive" | "serif" | null;
+type PunctuationType = "without" | "with" | null;
 export default function Home() {
   const applyDarkTheme = () => {
     document.documentElement.style.setProperty("--bg-white", "#131313");
@@ -28,6 +29,16 @@ export default function Home() {
   };
   const applyFont = (newFont: FontType) => {
     document.documentElement.style.setProperty("--ff-default", newFont);
+  };
+  const getPunctuation = (): PunctuationType => {
+    if (typeof window !== "undefined") {
+      const storedPunc = localStorage.getItem("punctuation") as PunctuationType;
+      const validPunc: PunctuationType[] = ["without", "with"];
+      if (validPunc.includes(storedPunc)) {
+        return storedPunc;
+      }
+    }
+    return "without";
   };
   const getFont = (): FontType => {
     if (typeof window !== "undefined") {
@@ -64,12 +75,15 @@ export default function Home() {
 
   const [font, setFont] = useState<FontType>(null);
   const [theme, setTheme] = useState<ThemeType>(null);
+  const [punctuation, setPunctuation] = useState<PunctuationType>(null);
   useEffect(() => {
     const chosenTheme = getDefaultTheme(); // get theme from localStorage or user preference
     const chosenFont = getFont(); // get font from localStorage or default value
+    const chosenPunc = getPunctuation();
 
     setTheme(chosenTheme);
     setFont(chosenFont); // set the font state
+    setPunctuation(chosenPunc);
 
     if (chosenTheme === "dark") {
       applyDarkTheme();
@@ -92,6 +106,9 @@ export default function Home() {
     setFont(newFont);
     applyFont(newFont);
   };
+  const handlePunctuation = (newPunc: PunctuationType) => {
+    setPunctuation(newPunc);
+  };
   useEffect(() => {
     if (typeof window !== "undefined" && theme) {
       localStorage.setItem("theme", theme);
@@ -102,6 +119,11 @@ export default function Home() {
       localStorage.setItem("font", font);
     }
   }, [font]);
+  useEffect(() => {
+    if (typeof window !== "undefined" && punctuation) {
+      localStorage.setItem("punctuation", punctuation);
+    }
+  }, [punctuation]);
   return (
     <div className="p-4 relative">
       <h1 className="text-4xl text-center tracking-wider">
@@ -172,10 +194,26 @@ export default function Home() {
           </div>
           <div className="preference__item">
             <h1 className="text-2xl underline">Punctuation:</h1>
-            <button className="preferences__buttons hover-scale current-preference">
+            <button
+              className={`preferences__buttons hover-scale ${
+                punctuation && punctuation === "without"
+                  ? "current-preference"
+                  : ""
+              }`}
+              onClick={() => handlePunctuation("without")}
+            >
               without
             </button>
-            <button className="preferences__buttons hover-scale">with</button>
+            <button
+              className={`preferences__buttons hover-scale ${
+                punctuation && punctuation === "with"
+                  ? "current-preference"
+                  : ""
+              }`}
+              onClick={() => handlePunctuation("with")}
+            >
+              with
+            </button>
           </div>
         </div>
       </div>

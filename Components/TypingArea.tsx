@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { randomWordsList } from "@/utils";
+import { randomWordsList, punctuationRandomWordsList } from "@/utils";
 import { useRef, useEffect, useState } from "react";
 type typingAreaProps = {
   wordsAmount: number;
@@ -14,6 +14,7 @@ type TestResult = {
   wrongWords: number;
   level: string;
 };
+type PunctuationType = "without" | "with" | null;
 const TypingArea: React.FC<typingAreaProps> = ({ wordsAmount, path }) => {
   //everything related to input field and wpm, accuracy, correct & wrong words:
   const [typedWord, setTypedWord] = useState("");
@@ -119,7 +120,13 @@ const TypingArea: React.FC<typingAreaProps> = ({ wordsAmount, path }) => {
     setStartTime(null);
     setWordsTypedSoFar(0);
     setClearInput(false);
-    setWordsArr(randomWordsList(path, wordsAmount));
+    if (punctuation === "with") {
+      setWordsArr(
+        punctuationRandomWordsList(randomWordsList(path, wordsAmount))
+      );
+    } else {
+      setWordsArr(randomWordsList(path, wordsAmount));
+    }
     inputRef?.current?.classList.remove("bg-red");
     // Reset classes for each word
     wordRefs.current.forEach((wordEl) => {
@@ -202,6 +209,29 @@ const TypingArea: React.FC<typingAreaProps> = ({ wordsAmount, path }) => {
       inputRef.current.focus();
     }
   };
+  const getPunctuation = (): PunctuationType => {
+    const storedPunc = localStorage.getItem("punctuation");
+    const validPunc: PunctuationType[] = ["without", "with"];
+    if (validPunc.includes(storedPunc as PunctuationType)) {
+      return storedPunc as PunctuationType;
+    }
+    return "without";
+  };
+  const [punctuation, setPunctuation] = useState<PunctuationType>(null);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const punc = getPunctuation();
+      setPunctuation(punc);
+      if (punc === "with") {
+        setWordsArr(
+          punctuationRandomWordsList(randomWordsList(path, wordsAmount))
+        );
+      } else {
+        setWordsArr(randomWordsList(path, wordsAmount));
+      }
+    }
+  }, []);
+
   return (
     <>
       {wordsAmount && <div className="words-area">{renderWords()}</div>}

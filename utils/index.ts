@@ -52,24 +52,28 @@ export function randomWordsList(
   }
   return arr;
 }
-export function formatArrToSentence(arr: string[]) {
-  return arr.join(" ");
-}
-export function algoFormatArrToSentence(words: string[]) {
-  const numOfWords = Math.floor(Math.random() * 7) + 4;
-  let sentence = [];
-  for (let i = 0; i < numOfWords; i++) {
-    const randomWord = words[Math.floor(Math.random() * words.length)];
-    sentence.push(randomWord);
-    if (Math.random() < 0.1 && i !== numOfWords - 1) {
-      sentence[i] = sentence[i] + ".";
+export function punctuationRandomWordsList(words: string[]): string[] {
+  const result: string[] = [];
+  const punctuationProbability = 0.1; // This determines the frequency of punctuation. Adjust as needed.
+
+  for (let i = 0; i < words.length; i++) {
+    if (Math.random() < punctuationProbability && i !== words.length - 1) {
+      // Append punctuation to the current word.
+      result.push(words[i] + ".");
+
+      // Capitalize the next word.
       i++;
-      const nextRandomWord = words[Math.floor(Math.random() * words.length)];
-      sentence.push(nextRandomWord[0].toUpperCase() + nextRandomWord.slice(1));
+      const capitalizedWord = words[i][0].toUpperCase() + words[i].slice(1);
+      result.push(capitalizedWord);
+    } else {
+      result.push(words[i]);
     }
   }
-  if (!sentence[sentence.length - 1].endsWith(".")) {
-    sentence[sentence.length - 1] = sentence[sentence.length - 1] + ".";
+
+  // Ensure the last word has punctuation.
+  if (!result[result.length - 1].endsWith(".")) {
+    result[result.length - 1] = result[result.length - 1] + ".";
   }
-  return sentence.join(" ");
-} // we do a join to the array, returns a string.
+
+  return result;
+}
