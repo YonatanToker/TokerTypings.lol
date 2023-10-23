@@ -275,11 +275,21 @@ const TypingArea: React.FC<typingAreaProps> = ({ wordsAmount, path }) => {
       case adjustedWPM >= 80:
         return 20;
       case adjustedWPM >= 75:
-        return 25;
+        return 30;
+      case adjustedWPM >= 70:
+        return 40;
       case adjustedWPM >= 65:
         return 50;
+      case adjustedWPM >= 60:
+        return 60;
       case adjustedWPM >= 55:
         return 75;
+      case adjustedWPM >= 50:
+        return 80;
+      case adjustedWPM >= 45:
+        return 85;
+      case adjustedWPM >= 40:
+        return 90;
       default:
         return 95;
     }
