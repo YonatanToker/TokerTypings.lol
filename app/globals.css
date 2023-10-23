@@ -13,11 +13,7 @@
   --text-white: #ffffff;
   --text-lighter: #e7e7e7;
 
-  --ff-default: sans-serif, Arial, monospace;
-  --ff-monospace: monospace;
-  --ff-sans-serif: sans-serif;
-  --ff-arial: Arial;
-  --ff-cursive: cursive;
+  --ff-default: sans-serif, monospace, cursive;
 }
 * {
   margin: 0;
@@ -35,7 +31,6 @@ html {
   position: relative;
   background: var(--bg-white);
   color: var(--text-darker);
-  font-family: var(--font-families);
 }
 .navbar {
   background-color: var(--bg-light);

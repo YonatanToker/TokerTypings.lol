@@ -6,28 +6,30 @@ const Footer = () => {
   const openLinkToGithub = () => {
     window.open("https://github.com/YonatanToker");
   };
-  const openLinkToLinkedIn = () => {
-    window.open("https://www.linkedin.com/in/yonatan-toker-073607170/");
+  const openLinkToSupport = () => {
+    window.open("https://www.paypal.com/paypalme/yonatantoker");
   };
   return (
     <footer className="logos-footer">
-      <p className="footer-paragraph">@ Made by Yonatan Toker</p>
+      <p className="footer-paragraph">© Made by Yonatan Toker</p>
       <div className="logos-container">
         <Image
           className="hover-scale"
           src="/github.png"
-          alt="github logo"
+          alt="github icon"
+          title="github repo"
           width={40}
           height={40}
           onClick={openLinkToGithub}
         />
         <Image
           className="hover-scale"
-          src="/linkedin.png"
-          alt="linkedIn logo"
+          src="/support.png"
+          alt="support icon"
+          title="support"
           width={40}
           height={40}
-          onClick={openLinkToLinkedIn}
+          onClick={openLinkToSupport}
         />
       </div>
     </footer>
