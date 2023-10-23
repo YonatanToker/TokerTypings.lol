@@ -231,7 +231,60 @@ const TypingArea: React.FC<typingAreaProps> = ({ wordsAmount, path }) => {
       }
     }
   }, []);
+  const playerPercentile = (mode: string) => {
+    const currentWPM = resultsArr[resultsArr.length - 1].wpm;
+    let adjustedWPM;
 
+    switch (mode) {
+      case "Easy":
+        adjustedWPM = currentWPM;
+        break;
+      case "Normal":
+        adjustedWPM = currentWPM * 1.15; // increase by 15%
+        break;
+      case "Hard":
+        adjustedWPM = currentWPM * 1.7; // increase by 70%
+        break;
+      default:
+        adjustedWPM = currentWPM;
+        break;
+    }
+    switch (true) {
+      case adjustedWPM >= 140:
+        return 1;
+      case adjustedWPM >= 135:
+        return 2;
+      case adjustedWPM >= 130:
+        return 3;
+      case adjustedWPM >= 125:
+        return 4;
+      case adjustedWPM >= 120:
+        return 5;
+      case adjustedWPM >= 115:
+        return 6;
+      case adjustedWPM >= 110:
+        return 7;
+      case adjustedWPM >= 105:
+        return 8;
+      case adjustedWPM >= 100:
+        return 9;
+      case adjustedWPM >= 95:
+        return 10;
+      case adjustedWPM >= 90:
+        return 15;
+      case adjustedWPM >= 80:
+        return 20;
+      case adjustedWPM >= 75:
+        return 25;
+      case adjustedWPM >= 65:
+        return 50;
+      case adjustedWPM >= 55:
+        return 75;
+      default:
+        return 95;
+    }
+  };
+  console.log(resultsArr);
   return (
     <>
       {wordsAmount && <div className="words-area">{renderWords()}</div>}
@@ -264,6 +317,9 @@ const TypingArea: React.FC<typingAreaProps> = ({ wordsAmount, path }) => {
       </div>
       {resultsArr.length > 0 && showResults && (
         <div className="display-results">
+          <div className="top-percentile">
+            Top {playerPercentile(resultsArr[resultsArr.length - 1].level)}%
+          </div>
           <div className="close hover-scale" onClick={handleClose}>
             x
           </div>

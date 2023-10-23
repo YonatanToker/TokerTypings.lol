@@ -236,6 +236,19 @@ html {
   padding: 0.5em;
   flex-direction: column;
   border-radius: 10px;
+  overflow: hidden;
+}
+.top-percentile {
+  position: absolute;
+  font-size: 0.5em;
+  left: -2em;
+  top: 0.25em;
+  transform: rotate(-45deg);
+  background-color: #b0861c9b;
+  padding: 0.5em;
+  display: flex;
+  justify-content: center;
+  width: 100px;
 }
 .close {
   position: absolute;
@@ -262,6 +275,7 @@ html {
   border-radius: 10px;
   padding: 0.2em;
 }
+
 .save-button {
   background-color: var(--bg-light);
   width: 150px;
