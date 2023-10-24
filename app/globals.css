@@ -283,6 +283,10 @@ html {
   margin: 1em auto 0 auto;
   border-radius: 10px;
 }
+.save-button.disabled {
+  background-color: #bbb;
+  cursor: not-allowed;
+}
 .logos-footer {
   width: 100%;
   display: flex;

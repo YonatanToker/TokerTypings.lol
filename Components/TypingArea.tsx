@@ -104,6 +104,7 @@ const TypingArea: React.FC<typingAreaProps> = ({ wordsAmount, path }) => {
 
         setResultsArr((prevResults) => {
           setShowResults(true); // ensure results are shown for the new test
+          setShowSaveFeedback(false); //ensures that saved turn into save
           return [...prevResults, newResult];
         });
       }
@@ -190,6 +191,13 @@ const TypingArea: React.FC<typingAreaProps> = ({ wordsAmount, path }) => {
         if (wordsAmount) {
           handleRefresh();
         }
+      } else if (
+        e.key === "Enter" &&
+        resultsArr.length > 0 &&
+        showResults &&
+        !showSaveFeedback
+      ) {
+        handleSave();
       }
     };
 
@@ -294,7 +302,26 @@ const TypingArea: React.FC<typingAreaProps> = ({ wordsAmount, path }) => {
         return 95;
     }
   };
+  const [showSaveFeedback, setShowSaveFeedback] = useState(false);
   console.log(resultsArr);
+  const handleSave = () => {
+    if (typeof window !== "undefined") {
+      const latestResult = resultsArr[resultsArr.length - 1];
+
+      // Fetch previous results from localStorage or default to an empty array
+      const storedResults: TestResult[] = JSON.parse(
+        localStorage.getItem("resultsArr") || "[]"
+      );
+
+      // Append the latest result and save back to localStorage
+      storedResults.push(latestResult);
+      localStorage.setItem("resultsArr", JSON.stringify(storedResults));
+
+      // Give feedback to the user
+      setShowSaveFeedback(true);
+    }
+  };
+
   return (
     <>
       {wordsAmount && <div className="words-area">{renderWords()}</div>}
@@ -353,11 +380,14 @@ const TypingArea: React.FC<typingAreaProps> = ({ wordsAmount, path }) => {
             </div>
           </div>
           <button
-            className="save-button hover-scale"
+            className={`save-button hover-scale ${
+              showSaveFeedback ? "disabled" : ""
+            }`}
             title="or press enter"
-            // onClick={handleSave()} + that still focuses on inputEl + disapear
+            onClick={handleSave}
+            disabled={showSaveFeedback}
           >
-            save
+            {showSaveFeedback ? "Saved!" : "Save"}
           </button>
         </div>
       )}
