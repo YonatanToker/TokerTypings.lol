@@ -124,6 +124,14 @@ export default function Home() {
       localStorage.setItem("punctuation", punctuation);
     }
   }, [punctuation]);
+  const handleResetDefault = () => {
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("punctuation");
+      localStorage.removeItem("font");
+      localStorage.removeItem("theme");
+      location.reload();
+    }
+  };
   return (
     <div className="p-4 relative">
       <h1 className="text-4xl text-center tracking-wider">
@@ -146,7 +154,7 @@ export default function Home() {
               }`}
               onClick={() => handleTheme("light")}
             >
-              option 1
+              dark
             </button>
             <button
               className={`preferences__buttons hover-scale ${
@@ -154,7 +162,7 @@ export default function Home() {
               }`}
               onClick={() => handleTheme("dark")}
             >
-              option 2
+              light
             </button>
           </div>
           <div className="preference__item">
@@ -217,7 +225,12 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <button className="reset-default-btn hover-scale">Reset Default</button>
+      <button
+        className="reset-default-btn hover-scale"
+        onClick={handleResetDefault}
+      >
+        Reset Default
+      </button>
     </div>
   );
 }

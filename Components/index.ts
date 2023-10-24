@@ -5,6 +5,7 @@ import StatisticsNavbar from "./StatisticsNavbar";
 import WordsCount from "./WordsCount";
 import TypingArea from "./TypingArea";
 import LineChart from "./LineChart";
+import ClearResultsArrLS from "./ClearResultsArrLS";
 export {
   Navbar,
   Footer,
@@ -13,4 +14,5 @@ export {
   WordsCount,
   TypingArea,
   LineChart,
+  ClearResultsArrLS,
 };

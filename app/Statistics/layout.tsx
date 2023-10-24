@@ -1,11 +1,12 @@
 import "../globals.css";
 import React from "react";
-import { StatisticsNavbar } from "@/Components";
+import { ClearResultsArrLS, StatisticsNavbar } from "@/Components";
 const StatisticsLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <StatisticsNavbar />
       {children}
+      <ClearResultsArrLS />
     </>
   );
 };
