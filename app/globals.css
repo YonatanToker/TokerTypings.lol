@@ -287,6 +287,9 @@ html {
   background-color: #bbb;
   cursor: not-allowed;
 }
+.line-chart {
+  color: var(--text-white);
+}
 .logos-footer {
   width: 100%;
   display: flex;

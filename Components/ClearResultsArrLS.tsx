@@ -5,6 +5,7 @@ const ClearResultsArrLS = () => {
   const handleDeleteResultsArr = () => {
     if (typeof window !== "undefined") {
       localStorage.removeItem("resultsArr");
+      window.location.href = "/";
     }
   };
   return (

@@ -154,7 +154,7 @@ export default function Home() {
               }`}
               onClick={() => handleTheme("light")}
             >
-              dark
+              option 1
             </button>
             <button
               className={`preferences__buttons hover-scale ${
@@ -162,7 +162,7 @@ export default function Home() {
               }`}
               onClick={() => handleTheme("dark")}
             >
-              light
+              option 2
             </button>
           </div>
           <div className="preference__item">
