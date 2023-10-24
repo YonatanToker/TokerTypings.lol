@@ -18,26 +18,26 @@ const Page = () => {
       <p className="text-lg mb-6">Hello there!👋</p>
 
       <p className="mb-4">
-        I'm Yonatan, the mind and code behind TokerTypings.lol.
+        I&apos;m Yonatan, the mind and code behind TokerTypings.lol.
       </p>
 
       <p className="mb-4">
-        If you've found value in this website, whether it's helped you hone your
-        typing skills or simply brought you joy, I'd appreciate a nod of
-        approval – a star on Github would be fantastic!
+        If you&apos;ve found value in this website, whether it&apos;s helped you
+        hone your typing skills or simply brought you joy, I&apos;d appreciate a
+        nod of approval – a star on Github would be fantastic!
       </p>
 
       <p className="mb-4">
         My vision for TokerTypings.lol was to build a typing tool that stands
         out from the rest: simple, minimalistic, and straightforward, all
-        without the hassle of logins or sign-ups. Plus, it's completely free and
-        open-sourced, so anyone can contribute, adapt, and learn from it. I
-        genuinely hope it inspires you or, at the very least, aids in improving
-        your typing speed.
+        without the hassle of logins or sign-ups. Plus, it&apos;s completely
+        free and open-sourced, so anyone can contribute, adapt, and learn from
+        it. I genuinely hope it inspires you or, at the very least, aids in
+        improving your typing speed.
       </p>
 
       <p className="mb-4 font-semibold">
-        If you're feeling particularly generous and wish to support further
+        If you&apos;re feeling particularly generous and wish to support further
         development, you can:
       </p>
 
@@ -112,7 +112,8 @@ const Page = () => {
 
       <p>
         Every bit of support, be it a Github star, a contribution, or a tip,
-        means the world to me. Let's make TokerTypings.lol even better together!
+        means the world to me. Let&apos;s make TokerTypings.lol even better
+        together!
       </p>
       <p className="mt-6">Thank you very much🙏 - Yonatan.</p>
     </div>
