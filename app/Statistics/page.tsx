@@ -19,7 +19,7 @@ type ChartData = {
     tension?: number;
   }[];
 };
-const page = () => {
+const Page = () => {
   const options = {};
   const [resultsArr, setResultsArr] = useState<resultsArrType[]>([]);
 
@@ -62,4 +62,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
