@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 const Footer = () => {
   const openLinkToGithub = () => {
-    window.open("https://github.com/YonatanToker");
+    window.open("https://github.com/YonatanToker/TokerTypings.lol");
   };
   return (
     <footer className="logos-footer">
