@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# [TokerTypings.lol](https://tokertypings.lol/)
+Welcome to TokerTypings.lol, a modern and minimalistic typing tests website.
+
+![TokerTypings Screenshot](,/four-pics.png) 
+
+## Overview
+TokerTypings.lol is built with simplicity and user experience in mind. Whether you're looking to hone your typing skills, compete with your past scores, or simply get into the world of touch typing, this platform offers you the tools and adaptability you need:
+
+- **Custom Preferences:** Adjust the theme, font, and punctuation based on your preferences - all saved to your localStorage.
+- **Multiple Difficulty Levels:** Choose between Easy, Normal, or Hard typing tests.
+- **Instant Feedback:** Once done with your typing test, get instant results on your words per minute (WPM), accuracy, correct and wrong words count.
+- **Progress Tracking:** Dive deep into your typing journey with a chart reflecting your historical test results on the Statistics page.
+- **No Sign-ups:** No need to register. All your data and settings are stored in your browser's localStorage.
 
 ## Getting Started
+To get started, just navigate to the website and begin your typing journey! Adjust your preferences and get typing.
 
-First, run the development server:
+## Contribute
+TokerTypings.lol is open-source and contributions are always welcome! Check out our [contribution guidelines](./CONTRIBUTING.md) for more details.
+
+To get started with local development:
 
 ```bash
+# Clone the repository
+git clone https://github.com/YonatanToker/TokerTypings.lol.git
+
+# Navigate to the directory
+cd TokerTypings.lol
+
+# Install the dependencies
+npm install
+
+# Start the local development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+## Support the Project
+If you've found value in this platform and wish to show your appreciation:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Star on Github:** If you like the project, consider giving it a star on Github!
+- **Donate:** Your support will help keep the platform free and support future developments. [Donate here](https://www.paypal.com/paypalme/yonatantoker).
+- **Contribute:** Dive into the code, add features, fix bugs, and become a part of the TokerTypings.lol community.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Special Thanks
+Huge thanks to everyone who has supported, contributed, or used TokerTypings.lol. Your support and feedback are invaluable!
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## License
+This project is licensed under the [MIT License](./LICENSE.md).
