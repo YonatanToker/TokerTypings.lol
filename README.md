@@ -1,7 +1,7 @@
 # [TokerTypings.lol](https://tokertypings.lol/)
 Welcome to TokerTypings.lol, a modern and minimalistic typing tests website.
 
-![Screenshots of the website](,/four-pics.png) 
+![Screenshots of the website](images/four-pics.png)
 
 ## Overview
 TokerTypings.lol is built with simplicity and user experience in mind. Whether you're looking to hone your typing skills, compete with your past scores, or simply get into the world of touch typing, this platform offers you the tools and adaptability you need:
