@@ -32,6 +32,14 @@ const TypingArea: React.FC<typingAreaProps> = ({ wordsAmount, path }) => {
   const [resultsArr, setResultsArr] = useState<TestResult[]>([]);
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
+    if (wordsTypedSoFar >= wordsAmount) {
+      if (value.endsWith(" ") || value.endsWith("\n")) {
+        setTypedWord("");
+      } else {
+        setTypedWord(value);
+      }
+      return;
+    }
     if (value.trim() === "" && value.endsWith(" ")) {
       return;
     }
@@ -45,11 +53,8 @@ const TypingArea: React.FC<typingAreaProps> = ({ wordsAmount, path }) => {
     let incrementedWrongWords = wrongWordsCount;
 
     // Real-time feedback: Check if the typed value so far matches the start of the correct word
-    if (correctWord.startsWith(value)) {
-      // If the user is on the right track but hasn't fully typed the word yet
-      if (value !== correctWord) {
-        inputRef?.current?.classList.remove("bg-red");
-      }
+    if (correctWord.startsWith(value) || correctWord === value) {
+      inputRef?.current?.classList.remove("bg-red");
     } else {
       inputRef?.current?.classList.add("bg-red");
     }
@@ -61,7 +66,10 @@ const TypingArea: React.FC<typingAreaProps> = ({ wordsAmount, path }) => {
     ) {
       const currentTypedWord = value.trim();
 
-      if (currentTypedWord === correctWord) {
+      if (
+        currentTypedWord === correctWord ||
+        correctWord.includes(currentTypedWord)
+      ) {
         incrementedCorrectWords += 1;
         setCorrectWordsCount(incrementedCorrectWords);
         currentWordEl?.classList.remove("wrong-word", "current-word");
@@ -104,7 +112,7 @@ const TypingArea: React.FC<typingAreaProps> = ({ wordsAmount, path }) => {
 
         setResultsArr((prevResults) => {
           setShowResults(true); // ensure results are shown for the new test
-          setShowSaveFeedback(false); //ensures that saved turn into save
+          setShowSaveFeedback(false); // ensures that saved turn into save
           return [...prevResults, newResult];
         });
       }
@@ -114,6 +122,7 @@ const TypingArea: React.FC<typingAreaProps> = ({ wordsAmount, path }) => {
       setTypedWord(value);
     }
   };
+
   const handleRefresh = () => {
     setTypedWord("");
     setCorrectWordsCount(0);
