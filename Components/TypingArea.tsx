@@ -30,6 +30,14 @@ const TypingArea: React.FC<typingAreaProps> = ({ wordsAmount, path }) => {
   const [wordsArr, setWordsArr] = useState(randomWordsList(path, wordsAmount));
 
   const [resultsArr, setResultsArr] = useState<TestResult[]>([]);
+  const separateWordFromPunctuation = (word: string) => {
+    const match = word.match(/^(\w+)(\W)?$/);
+    if (match) {
+      return { baseWord: match[1], punctuation: match[2] };
+    }
+    return { baseWord: word, punctuation: null };
+  };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     if (wordsTypedSoFar >= wordsAmount) {
@@ -58,7 +66,7 @@ const TypingArea: React.FC<typingAreaProps> = ({ wordsAmount, path }) => {
     } else {
       inputRef?.current?.classList.add("bg-red");
     }
-
+    const { baseWord, punctuation } = separateWordFromPunctuation(correctWord);
     if (
       value.endsWith(" ") ||
       value.endsWith("\n") ||
@@ -66,9 +74,12 @@ const TypingArea: React.FC<typingAreaProps> = ({ wordsAmount, path }) => {
     ) {
       const currentTypedWord = value.trim();
 
+      const { baseWord, punctuation } =
+        separateWordFromPunctuation(correctWord);
+
       if (
         currentTypedWord === correctWord ||
-        correctWord.includes(currentTypedWord)
+        (currentTypedWord === baseWord && !punctuation)
       ) {
         incrementedCorrectWords += 1;
         setCorrectWordsCount(incrementedCorrectWords);
@@ -312,7 +323,7 @@ const TypingArea: React.FC<typingAreaProps> = ({ wordsAmount, path }) => {
     }
   };
   const [showSaveFeedback, setShowSaveFeedback] = useState(false);
-  console.log(resultsArr);
+  console.log(wordsArr);
   const handleSave = () => {
     if (typeof window !== "undefined") {
       const latestResult = resultsArr[resultsArr.length - 1];
