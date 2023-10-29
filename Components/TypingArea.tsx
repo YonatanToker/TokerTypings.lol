@@ -323,7 +323,6 @@ const TypingArea: React.FC<typingAreaProps> = ({ wordsAmount, path }) => {
     }
   };
   const [showSaveFeedback, setShowSaveFeedback] = useState(false);
-  console.log(wordsArr);
   const handleSave = () => {
     if (typeof window !== "undefined") {
       const latestResult = resultsArr[resultsArr.length - 1];
