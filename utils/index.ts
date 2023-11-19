@@ -2,7 +2,15 @@ import data from "../data.json";
 const easyWords = data.easy;
 const normalWords = data.normal;
 const hardWords = data.hard;
-
+type resultsArrType =
+  | {
+      wpm: number;
+      accuracy: number;
+      correctWords: number;
+      wrongWords: number;
+      level: string;
+    }
+  | [];
 export function getLastPath(pathname: string) {
   if (pathname.length === 0) {
     console.log("The length of the path is 0");
@@ -17,6 +25,21 @@ export function getLastPath(pathname: string) {
     lastPath = currentChar + lastPath;
   }
   return lastPath;
+}
+
+export function getDifficultyTest(difficulty: string) {
+  if (typeof window !== "undefined") {
+    const storedArr = JSON.parse(localStorage.getItem("resultsArr") || "[]");
+
+    const arrOfDifficulty: resultsArrType[] = [];
+    for (let i = 0; i < storedArr.length; i++) {
+      if (storedArr[i].level === difficulty) {
+        arrOfDifficulty.push(storedArr[i]);
+      }
+    }
+    return arrOfDifficulty;
+  }
+  return [];
 }
 
 export function randomWordsList(

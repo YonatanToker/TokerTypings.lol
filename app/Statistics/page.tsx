@@ -2,6 +2,8 @@
 import React from "react";
 import { LineChart } from "@/Components";
 import { useState, useEffect } from "react";
+import { getDifficultyTest } from "@/utils";
+
 type resultsArrType = {
   wpm: number;
   accuracy: number;
@@ -41,8 +43,8 @@ const Page = () => {
           {
             label: "words per minute",
             data: storedArr.map((data: resultsArrType) => data.wpm),
-            borderColor: "aqua",
-            backgroundColor: "aqua",
+            borderColor: "blue",
+            backgroundColor: "blue",
             tension: 0.2,
           },
         ],

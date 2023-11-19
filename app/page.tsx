@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 type ThemeType = "light" | "dark" | null;
 type FontType = "sans-serif" | "monospace" | "cursive" | "serif" | null;
 type PunctuationType = "without" | "with" | null;
+type CurrentColorType = "blue" | "purple" | null;
 export default function Home() {
   const applyDarkTheme = () => {
     document.documentElement.style.setProperty("--bg-white", "#131313");
@@ -30,6 +31,9 @@ export default function Home() {
   const applyFont = (newFont: FontType) => {
     document.documentElement.style.setProperty("--ff-default", newFont);
   };
+  const applyCurrentColor = (newColor: CurrentColorType) => {
+    document.documentElement.style.setProperty("--current-color", newColor);
+  };
   const getPunctuation = (): PunctuationType => {
     if (typeof window !== "undefined") {
       const storedPunc = localStorage.getItem("punctuation") as PunctuationType;
@@ -55,6 +59,18 @@ export default function Home() {
     }
     return "sans-serif";
   };
+  const getCurrentColor = (): CurrentColorType => {
+    if (typeof window !== "undefined") {
+      const storedCurrentColoer = localStorage.getItem(
+        "currentcolor"
+      ) as CurrentColorType;
+      const validColors: CurrentColorType[] = ["blue", "purple"];
+      if (validColors.includes(storedCurrentColoer)) {
+        return storedCurrentColoer;
+      }
+    }
+    return "purple";
+  };
   const getDefaultTheme = (): ThemeType => {
     if (typeof window !== "undefined") {
       const storedTheme = localStorage.getItem("theme") as ThemeType;
@@ -76,14 +92,23 @@ export default function Home() {
   const [font, setFont] = useState<FontType>(null);
   const [theme, setTheme] = useState<ThemeType>(null);
   const [punctuation, setPunctuation] = useState<PunctuationType>(null);
+  const [currentColor, setCurrentColor] = useState<CurrentColorType>(null);
   useEffect(() => {
     const chosenTheme = getDefaultTheme(); // get theme from localStorage or user preference
     const chosenFont = getFont(); // get font from localStorage or default value
     const chosenPunc = getPunctuation();
+    const chosenColor = getCurrentColor();
 
     setTheme(chosenTheme);
     setFont(chosenFont); // set the font state
     setPunctuation(chosenPunc);
+    setCurrentColor(chosenColor);
+
+    if (chosenColor === "blue") {
+      applyCurrentColor("blue");
+    } else if (chosenColor === "purple") {
+      applyCurrentColor("purple");
+    }
 
     if (chosenTheme === "dark") {
       applyDarkTheme();
@@ -109,6 +134,9 @@ export default function Home() {
   const handlePunctuation = (newPunc: PunctuationType) => {
     setPunctuation(newPunc);
   };
+  const handleCurrentColor = (newCurrentColor: CurrentColorType) => {
+    setCurrentColor(newCurrentColor);
+  };
   useEffect(() => {
     if (typeof window !== "undefined" && theme) {
       localStorage.setItem("theme", theme);
@@ -124,11 +152,17 @@ export default function Home() {
       localStorage.setItem("punctuation", punctuation);
     }
   }, [punctuation]);
+  useEffect(() => {
+    if (typeof window !== "undefined" && currentColor) {
+      localStorage.setItem("currentcolor", currentColor);
+    }
+  }, [currentColor]);
   const handleResetDefault = () => {
     if (typeof window !== "undefined") {
       localStorage.removeItem("punctuation");
       localStorage.removeItem("font");
       localStorage.removeItem("theme");
+      localStorage.removeItem("currentcolor");
       location.reload();
     }
   };
@@ -221,6 +255,29 @@ export default function Home() {
               onClick={() => handlePunctuation("with")}
             >
               with
+            </button>
+          </div>
+          <div className="preference__item">
+            <h1 className="text-2xl underline">current color:</h1>
+            <button
+              className={`preferences__buttons hover-scale ${
+                currentColor && currentColor === "purple"
+                  ? "current-preference"
+                  : ""
+              }`}
+              onClick={() => handleCurrentColor("purple")}
+            >
+              option 1
+            </button>
+            <button
+              className={`preferences__buttons hover-scale ${
+                currentColor && currentColor === "blue"
+                  ? "current-preference"
+                  : ""
+              }`}
+              onClick={() => handleCurrentColor("blue")}
+            >
+              option 2
             </button>
           </div>
         </div>
