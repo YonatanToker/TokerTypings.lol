@@ -3,6 +3,7 @@ import React from "react";
 import { getDifficultyTest } from "@/utils";
 import { LineChart } from "@/Components";
 import { useState, useEffect } from "react";
+
 type resultsArrType = {
   wpm: number;
   accuracy: number;
@@ -10,6 +11,7 @@ type resultsArrType = {
   wrongWords: number;
   level: string;
 };
+
 type ChartData = {
   labels: number[];
   datasets: {
@@ -20,14 +22,16 @@ type ChartData = {
     tension?: number;
   }[];
 };
+
 const Page = () => {
   const options = {};
-  const [resultsArr, setResultsArr] = useState<resultsArrType[]>([]);
+  const [resultsArr, setResultsArr] = useState<resultsArrType[]>([]); // Corrected the type here
 
   const [chartData, setChartData] = useState<ChartData>({
     labels: [],
     datasets: [{ label: "words per minute", data: [] }],
   });
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       const storedArr = getDifficultyTest("Easy");
@@ -38,7 +42,10 @@ const Page = () => {
         datasets: [
           {
             label: "words per minute",
-            data: storedArr.map((data: resultsArrType) => data.wpm),
+            data:
+              storedArr.length > 0
+                ? storedArr.map((item: resultsArrType) => item.wpm)
+                : [],
             borderColor: "blue",
             backgroundColor: "blue",
             tension: 0.2,
