@@ -222,6 +222,7 @@ html {
 .current-word::after {
   content: "";
   background-color: var(--bg-white);
+  opacity: 10%;
   width: 100%;
   height: 100%;
   position: absolute;
