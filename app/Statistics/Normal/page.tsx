@@ -39,8 +39,8 @@ const Page = () => {
           {
             label: "words per minute",
             data: storedArr.map((data: resultsArrType) => data.wpm),
-            borderColor: "aqua",
-            backgroundColor: "aqua",
+            borderColor: "brown",
+            backgroundColor: "brown",
             tension: 0.2,
           },
         ],

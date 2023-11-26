@@ -46,8 +46,8 @@ const Page = () => {
               storedArr.length > 0
                 ? storedArr.map((item: resultsArrType) => item.wpm)
                 : [],
-            borderColor: "blue",
-            backgroundColor: "blue",
+            borderColor: "green",
+            backgroundColor: "green",
             tension: 0.2,
           },
         ],
