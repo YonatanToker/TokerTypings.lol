@@ -1,8 +1,7 @@
 # [TokerTypings.lol](https://tokertypings.lol/)
 Welcome to TokerTypings.lol, a modern and minimalistic typing tests website.
-Edit: Don't contribute.
 ----------------
-I created a whole better website: https://smashertypist.com/ and it has 40 different languages in it, share your results and compete on a global leaderboard.
+If you're looking for a better typing exercises website, I created a whole better website: https://smashertypist.com/ and it has 40 different languages in it, share your results and compete on a global leaderboard.
 
 ![four-pics](https://github.com/YonatanToker/TokerTypings.lol/assets/116793943/c4053562-ffb5-4d25-9698-b245cd9086fe)
 
