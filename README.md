@@ -1,9 +1,8 @@
 # [TokerTypings.lol](https://tokertypings.lol/)
 Welcome to TokerTypings.lol, a modern and minimalistic typing tests website.
-Edit: Don't contribute, some time after releasing it, the project's typing logic is good however the localStorage is not associated with context, the logic for websites that save results or user preferences in localStorage should be that they would work with React context or some state mangement solution and then set that localStorage will be associated with that context or state mangement solution, for the elements inside the apps only render them after it loads the value of the context, if can't or doesn't exist then create one with some default values.
+Edit: Don't contribute.
 ----------------
-Anyway I created a whole better website: https://smashertypist.com/ and it has or will have (I'm typing this as I'm in the middle of building it) 40 different languages and full control over the typing preferences, the results are saved to the database with your user. Most importantly it isn't broken like this website in the localStorage side :)
-
+I created a whole better website: https://smashertypist.com/ and it has 40 different languages in it, share your results and compete on a global leaderboard.
 
 ![four-pics](https://github.com/YonatanToker/TokerTypings.lol/assets/116793943/c4053562-ffb5-4d25-9698-b245cd9086fe)
 
